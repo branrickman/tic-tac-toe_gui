@@ -4,6 +4,7 @@ import time
 from sys import exit
 from random import randint
 
+
 class Board(pygame.sprite.Sprite):
 
     def __init__(self):
@@ -49,7 +50,8 @@ class Board(pygame.sprite.Sprite):
     def print_board(self):
         # reversing the x, y like this means that the spaces are numbered across rows first
         if self.game_state == 1:
-            pos = [(x, y) for y in [15+ randint(-20, 20), 340+ randint(-20, 20), 690+ randint(-20, 20)] for x in [50+ randint(-20, 20), 400+ randint(-20, 20), 730+ randint(-20, 20)]]
+            pos = [(x, y) for y in [15 + randint(-20, 20), 340 + randint(-20, 20), 690 + randint(-20, 20)] for x in
+                   [50 + randint(-20, 20), 400 + randint(-20, 20), 730 + randint(-20, 20)]]
             spaces = self.spaces
             for i in range(9):
                 time.sleep(0.005)
@@ -86,7 +88,7 @@ class Board(pygame.sprite.Sprite):
             count = 0
             for i in range(9):
                 if self.spaces[i] == 0:
-                    count =+ 1
+                    count = + 1
             if count == 0:
                 return 'draw'
             else:
@@ -153,11 +155,11 @@ o_surf = pygame.transform.scale(o_surf, (200, 200))
 o_rect = o_surf.get_rect(center=(500, 500))
 
 game_start_surf = pygame.image.load("assets/images/eTtT_start.png").convert_alpha()
-game_start_rect = game_start_surf.get_rect(topleft = (0,0))
+game_start_rect = game_start_surf.get_rect(topleft=(0, 0))
 
 game_over_surf = pygame.image.load("assets/images/win_screen.png").convert_alpha()
 game_over_surf = pygame.transform.scale(game_over_surf, (1000, 1000))
-game_over_rect = game_over_surf.get_rect(topleft = (0,0))
+game_over_rect = game_over_surf.get_rect(topleft=(0, 0))
 
 board = pygame.sprite.GroupSingle()
 board.add(Board())
